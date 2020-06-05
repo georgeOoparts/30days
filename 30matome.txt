@@ -79,6 +79,144 @@ h2 { color: red; }
 、「<h2></h2>で囲まれた範囲の（セレクタ）、
 colorを（プロパティ）、redにする！（バリュー）」
 ----------------------
+h3 {
+color:blue;
+font-size: 20px;
+}
+----------------------
+指定したクラスだけをcssで見た目変更
+<h2 class="yellow-font">黄色のH2</h2>
+
+/* .yellow-fontがついた要素の文字色を黄色に指定。こちらの方が優先されます */
+  .yellow-font {
+    color: yellow; 
+    font-size: 20px;
+  }
+----------------------
+太字にする
+font-weight: bold;
+----------------------
+子要素を指定
+
+<article class="contents">
+<p>子孫となるpです。</p>
+<p>子孫となるpです。</p>
+</article>
+
+.contents p {
+font-size: 18px;
+}
+----------------------
+直属の子要素のみ指定
+<div class="contents">
+<p>このpの色だけ変えたい</p>
+<div>
+<p>ここは変えない</p>
+<p>ここも変えない</p>
+</div>
+</div>
+
+/* 誤：「.contents p」指定では全てのpタグの色が変わってしまう */
+.contents p {
+color: red;
+}
+
+/* 正：「>」で繋げることで直属の子孫要素のみを指定できます */
+.contents > p {
+color: red;
+}
+----------------------
+コンテンツエリア…内容が表示される部分
+padding…要素の中に割り当てられている余白
+border…要素の境界
+margin…隣接する要素との余白
+<div>～</div>という一つの要素は、実はこの四つの要素を含んだボックスになっているんです。
+----------------------
+クロームの検証機能でcssを変更する。
+
+画面文字　文字クリック　＞右クリック検証＞右側に検証画面が出る
+
+elements.styleにcss入力
+
+
+----------------------
+font-size: 18px;
+font-size: 2em;2倍
+font-size: 200%;2倍
+
+----------------------
+font-family:serif;//ちょっとシュッとなる
+
+font-family:serif,sans-serif;
+serifが環境的になかったら、sans-serifになる
+----------------------
+width: 250px;幅
+height: 80px;高さ
+padding: 20px; 内側全部20pxスペースあける
+
+padding: 20px,10px,5px,3px;内側　上　→　↓　←　ピクセルをあける
+
+border:10px solid black　黒の　枠で囲む
+border:10px doted 点線で囲む
+
+margin:10px　外側余白10px
+
+box-sizing:border-box;  border以下をすべて合わせて　height　widthにする。
+----------------------
+line-height: 40px;行間を指定
+
+text-align: center;センターに文字を持ってくる
+vertical-align: top; 垂直方向　上に合わせる
+text-decoration: underline;　アンダーラインを引く
+text-decoration: line-through;　アンダーラインを引く
+later-spacing:10px
+
+----------------------
+background-color: red; 後ろの色指定
+background-image: url(./img/test.png);後ろ画像指定
+    width: 600px;
+    height: 600px;
+background-size: contain;画像をサイズに収める
+background-size: contain;画像をサイズに収める
+----------------------
+background-repeat: no-repeat;画像をリピートしない
+background-repeat: repeat-y;画像をｙ方向にリピートする
+background-attachment: fixed;　背景画像スクロールさせても動かない
+background-attachment: scroll;　背景画像スクロールさせる
+----------------------
+float: left;横並び
+
+
+clear: both;横並び解除
+----------------------
+縦横を自由に指定し並べる（現在floatはあまりつかわれていない）
+display: flex;柔軟に横に並べる
+flex-wrap:wrap;　はみ出したら次の行に
+
+
+justify-content: center;横方向　これは中央並べ
+align-items: flex-end;　縦方向　これは↓に合わせる
+
+flex-direction: column;　縦に並べる
+flex-direction: row;　横に並べる（通常のdisplay: flex;）
+----------------------
+常に表示させておきたいもの
+position: fixed;
+左から10px開けて表示
+left:10px;
+------------
+重なったオブジェクトの前に出す方を決める
+z-index;100; 数字が大きいほど前に表示される
+--------------
+本来表示されるべき所から相対的にずらす
+position:relative;
+left:10px;
+
+position:relative;がついた親要素から離れた場所に表示させる
+子要素に
+position:absolute;
+left:10px;
+
 
 ----------------------
 ----------------------
@@ -94,4 +232,4 @@ colorを（プロパティ）、redにする！（バリュー）」
 ----------------------
 ----------------------
 ----------------------
-
+----------------------
