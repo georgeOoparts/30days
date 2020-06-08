@@ -354,9 +354,34 @@ html＞＞＞class="btn btn-register"
     margin: auto;
 }
 ----------------------
+ファイルがある階層の上指定
+../
+背景を縮小拡大して全部を表示させる
+background-size:cover;
+.top
+{
+   background-image: url(../img/main-vsual-nontitle.png);
+   background-size:cover; 
+   
+}
 ----------------------
+ipadの一番大きいサイズ　768px
+ｐｃから一番大きいパッドまで
+/*スマホ要の表示 */
+@media only screen and (max-width:767px)
+{
+    header
+}
 ----------------------
+
+親要素の幅を子要素の幅が超えたら上下に並べる
+flex-wrap: wrap;
 ----------------------
+クラス　を無効にする
+.clear::after
+    {
+        content: none;
+    }
 ----------------------
 ----------------------
 ----------------------
