@@ -1,0 +1,406 @@
+詰まっている箇所（〇〇編DAY〇〇）
+聞きたいことの一行まとめ
+起きている問題（起きている現象の詳細/エラーメッセージ/スクリーンショット）
+ソースコード（関連するソースコード/全ソースコード）
+問題解決するために試したこと（コードもあれば追記） 
+問題について自分なりに考えたこと（デバッグ結果/検索結果/自分なりの原因予想）
+
+22:30
+----------------------
+htmlファイルのデフォルトを表示
+!+tab 
+----------------------
+<!-- ここにコメントを書き込みます -->
+
+<!-- ページのタイトルなどにつかいます -->
+<h1>h1タグです</h1>
+<!-- 大見出しにつかいます -->
+<h2>h2タグです</h2>
+<!-- 中見出しにつかいます -->
+<h3>h3タグです</h3>
+<!-- 小見出しにつかいます -->
+<h4>h4タグです</h4>
+<!-- 重要度の低い見出しにつかいます（あまり使いません） -->
+<h5>h5タグです</h5>
+<!-- 重要度の低い見出しにつかいます（あまり使いません） -->
+<h6>h6タグです</h6>
+<!-- テキストにはpタグを使う -->
+<p>これはpタグです。テキストを書くときに使います！</p>
+
+<a href="https://www.daily-trial.com/">リンクするよ</a>
+<img src="https://tokyofreelance.jp/web_first.png">
+
+
+<ul>
+    <li>りんご</li>
+    <li>みかん</li>
+    <li>バナナ</li>
+</ul>
+
+<ol>
+    <li>項目その1</li>
+    <li>項目その2</li>
+    <li>項目その3</li>
+</ol>
+<!-- まとめるdiv -->
+<div>
+    <ol>
+    <li>項目その1</li>
+    <li>項目その2</li>
+    <li>項目その3</li>
+    </ol>
+</div>
+<!-- ここにコメントを書き込みます -->
+
+    <p>
+        <span>ブロック要素の中のインライン要素です</span>
+    </p>
+    
+    <p id="taro">山田太郎</p>
+----------------------
+ブロック要素のタグは、閉じタグ</～>の時点で改行されます。
+なので、ブロック要素同士を連続で書くと縦に並ぶことになります。
+一方、インライン要素のタグを連続で書くと横に並びます。
+段落ではなく文章として認識されているため、改行がされないんです。
+
+また、「タグに横幅や高さの設定をしたのに、反映されない！」
+というのは初心者の人が陥りがちな落とし穴ですが、それはインライン要素だからです。
+----------------------
+<head>
+
+<!-- ここでstyle.cssを読み込みます -->
+<link rel="stylesheet" href="./css/style.css">
+</head>
+----------------------
+絶対パス…ファイルのある場所を完全に指定する
+相対パス…編集しているファイルから見たファイルの場所を指定する
+----------------------
+h2 { color: red; }
+、「<h2></h2>で囲まれた範囲の（セレクタ）、
+colorを（プロパティ）、redにする！（バリュー）」
+----------------------
+h3 {
+color:blue;
+font-size: 20px;
+}
+----------------------
+指定したクラスだけをcssで見た目変更
+<h2 class="yellow-font">黄色のH2</h2>
+
+/* .yellow-fontがついた要素の文字色を黄色に指定。こちらの方が優先されます */
+  .yellow-font {
+    color: yellow; 
+    font-size: 20px;
+  }
+----------------------
+太字にする
+font-weight: bold;
+----------------------
+子要素を指定
+
+<article class="contents">
+<p>子孫となるpです。</p>
+<p>子孫となるpです。</p>
+</article>
+
+.contents p {
+font-size: 18px;
+}
+----------------------
+直属の子要素のみ指定
+<div class="contents">
+<p>このpの色だけ変えたい</p>
+<div>
+<p>ここは変えない</p>
+<p>ここも変えない</p>
+</div>
+</div>
+
+/* 誤：「.contents p」指定では全てのpタグの色が変わってしまう */
+.contents p {
+color: red;
+}
+
+/* 正：「>」で繋げることで直属の子孫要素のみを指定できます */
+.contents > p {
+color: red;
+}
+----------------------
+コンテンツエリア…内容が表示される部分
+padding…要素の中に割り当てられている余白
+border…要素の境界
+margin…隣接する要素との余白
+<div>～</div>という一つの要素は、実はこの四つの要素を含んだボックスになっているんです。
+----------------------
+クロームの検証機能でcssを変更する。
+
+画面文字　文字クリック　＞右クリック検証＞右側に検証画面が出る
+
+elements.styleにcss入力
+
+
+----------------------
+font-size: 18px;
+font-size: 2em;2倍
+font-size: 200%;2倍
+
+----------------------
+font-family:serif;//ちょっとシュッとなる
+
+font-family:serif,sans-serif;
+serifが環境的になかったら、sans-serifになる
+----------------------
+width: 250px;幅
+height: 80px;高さ
+padding: 20px; 内側全部20pxスペースあける
+
+padding: 20px,10px,5px,3px;内側　上　→　↓　←　ピクセルをあける
+
+border:10px solid black　黒の　枠で囲む
+border:10px doted 点線で囲む
+
+margin:10px　外側余白10px
+
+box-sizing:border-box;  border以下をすべて合わせて　height　widthにする。
+----------------------
+line-height: 40px;行間を指定
+
+text-align: center;センターに文字を持ってくる
+vertical-align: top; 垂直方向　上に合わせる
+text-decoration: underline;　アンダーラインを引く
+text-decoration: line-through;　アンダーラインを引く
+later-spacing:10px
+
+----------------------
+background-color: red; 後ろの色指定
+background-image: url(./img/test.png);後ろ画像指定
+    width: 600px;
+    height: 600px;
+background-size: contain;画像をサイズに収める
+background-size: contain;画像をサイズに収める
+----------------------
+background-repeat: no-repeat;画像をリピートしない
+background-repeat: repeat-y;画像をｙ方向にリピートする
+background-attachment: fixed;　背景画像スクロールさせても動かない
+background-attachment: scroll;　背景画像スクロールさせる
+----------------------
+float: left;横並び
+
+
+clear: both;横並び解除
+----------------------
+縦横を自由に指定し並べる（現在floatはあまりつかわれていない）
+display: flex;柔軟に横に並べる
+flex-wrap:wrap;　はみ出したら次の行に
+
+
+justify-content: center;横方向　これは中央並べ
+align-items: flex-end;　縦方向　これは↓に合わせる
+
+flex-direction: column;　縦に並べる
+flex-direction: row;　横に並べる（通常のdisplay: flex;）
+
+コンテンツを等間隔に並べる
+justify-content: space-between;コンテンツの間だけ
+justify-content: space-arround;コンテンツの両端も含めて
+
+flexboxを使うと、
+
+要素の横並び「diplay:inline-block」
+高さの中央揃え「vertical-align:middle」
+右揃え・左揃え「float」をいっぺんにやってくれる
+----------------------
+常に表示させておきたいもの
+position: fixed;
+左から10px開けて表示
+left:10px;
+------------
+重なったオブジェクトの前に出す方を決める
+z-index;100; 数字が大きいほど前に表示される
+--------------
+本来表示されるべき所から相対的にずらす
+position:relative;
+left:10px;
+
+position:relative;がついた親要素から離れた場所に表示させる
+子要素に
+position:absolute;
+left:10px;
+
+
+----------------------
+vscode autosave
+上部メニューから「設定」を選ぶ\
+（Macの場合は【Command 】+【,】のショートカットでも開きます！）
+ファイル＞ユーザー設定＞設定＞autosave＞after　delay
+検索窓に「autosave」を入力
+セレクトボックスから「afterDelay」を選ぶ
+
+off：自動保存されません
+afterDelay：一定時間操作がなかったら保存します
+onFocusChange：タブからカーソルが消えた時点で保存します
+onWindowChage：ウィンドウを切り替えた時点で保存します
+
+----------------------
+Live Serverとは簡易ローカルサーバーを起動し、
+HTMLやCSSファイルの更新をライブプレビューできるようにするプラグインです。
+先ほど設定したファイルの自動保存と合わせて使うことで
+変更がリアルタイムに反映されるので気持ちいいです！きっと感動すること間違いなし！
+
+STEP1：HTML、CSSの入っているフォルダをVSCodeで開く
+練習中の今は「practice」フォルダですね。
+フォルダごとVScodeのアイコンにドラッグ&ドロップすると開けます。
+
+次にLive Serverを起動させていくんですが、起動の仕方は3パターンあるのでこのどれかを使ってください！
+
+STEP2-1：下のツールバーにあるGo Liveをクリックする
+----------------------
+/* リンクの上にマウスが置かれたときに色を少しだけ薄くする */
+a:hover { opacity:0.7; }
+----------------------
+エメットのリスト
+ul>li*3
+----------------------
+
+dl>dt+dd
+----------------------
+
+dl>(dt+dd)*3
+----------------------
+bg#000をTabで展開すると、background: #000000;
+c#fffをTabで展開すると、color: #ffffff;
+fz16をTabで展開すると、font-size: 16px;
+dibをTabで展開すると、display: inline-block;
+mb32をTabで展開すると、margin-bottom: 32px;
+p8-12-8-12をTabで展開すると、padding: 8px 12px 8px 12px;
+----------------------
+リセットcss先
+----------------------
+/*margin: auto;は中央ぞろえになる？  */
+    margin: auto; 
+----------------------
+
+
+----------------------
+floatの位置をちゃんととるため
+
+<div class="container clear">
+に対して以下のcssをあてる
+.clear::after
+{
+    content: "";
+    clear: both;
+    display: block;
+}
+----------------------
+.header-nav-item
+{
+    float: left;
+	//リストの文字余白左側の間隔を開ける
+    margin-left: 50px;
+}
+----------------------
+文字の高さline　heightそろえていく
+----------------------
+中央に文字を寄せる
+    text-align: center;
+
+----------------------
+フレックスボックスおすすめ
+ウェブクリエーターボックス　
+フレックスボックスチートシート
+
+----------------------
+html　input
+最初から文字が入力されている
+value="最初から表示"
+placeholder="薄く表示"
+----------------------
+inputタブを複数cssで設定する
+input[type="email"],input[type="text"]
+{
+    width: 600px;
+    border: 3px solid blue;
+    font-size: 18px;
+    display: block;//意味わからん
+    margin: auto;
+    padding: 15px;
+    border-radius: 999px;//丸く
+    margin-bottom: 20px;
+}
+----------------------
+ボタンなどは使いまわすので共通の部分を作っておく
+html＞＞＞class="btn btn-register"
+.btn
+{
+    padding: 20px 60px;
+    display: inline-block;
+    background-color: blueviolet;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 999px;
+
+}
+.btn:hover
+{
+    opacity: 0.7;
+    cursor: pointer;
+}
+.btn-register
+{
+    background-color: tomato;
+    display: block;
+    margin: auto;
+}
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
