@@ -93,6 +93,13 @@ line-height:65px;
 
 
 --------------------
+google検索したときの　サイトの説明文　検索に引っかかる時重要な要素
+<meta name="description" content="デスクぷりくしょんです">
+
+--------------------
+
+--------------------
+--------------------
 
 HTMLの要素同士は通常重なって表示されることはありませんが、
 position: absolute;を使うと、
@@ -463,16 +470,17 @@ p8-12-8-12をTabで展開すると、padding: 8px 12px 8px 12px;
 
 
 ----------------------
-floatの位置をちゃんととるため
+floatの位置をちゃんととるため？
+高さをfloatでも消させないため
 float パターン　clear　　float clear
 
 <div class="container clear">
 に対して以下のcssをあてる
 .clear::after
 {
-    content: "";
-    clear: both;
-    display: block;
+    content: "";疑似要素を実体化
+    clear: both;floatを解除
+    display: block;ブロック要素とする。
 }
 ----------------------
 .header-nav-item
