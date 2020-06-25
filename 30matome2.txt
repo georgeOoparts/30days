@@ -9,7 +9,10 @@ htmlファイルのデフォルトを表示(emet)
 !+tab 
 ----------------------
 <a href="https://www.daily-trial.com/">リンクするよ</a>
-<img src="https://tokyofreelance.jp/web_first.png">
+<img src="https://tokyofreelance.jp/web_first.png"alt="">
+
+altの文字は画像が表示されないときに出る。画像の説明
+またブラウザの読み上げ機能でも、altが読み上げられる。
 ----------------------
 ブロック要素のタグは、閉じタグ</～>の時点で改行されます。
 なので、ブロック要素同士を連続で書くと縦に並ぶことになります。
@@ -95,10 +98,6 @@ line-height:65px;
 --------------------
 google検索したときの　サイトの説明文　検索に引っかかる時重要な要素
 <meta name="description" content="デスクぷりくしょんです">
-
---------------------
-
---------------------
 --------------------
 
 HTMLの要素同士は通常重なって表示されることはありませんが、
@@ -360,7 +359,6 @@ clear: both;横並び解除
 display: flex;柔軟に横に並べる
 flex-wrap:wrap;　はみ出したら次の行に改行
 
-
 justify-content: center;横方向　これは中央並べ
 align-items: flex-end;　縦方向　これは↓に合わせる
 
@@ -464,9 +462,6 @@ p8-12-8-12をTabで展開すると、padding: 8px 12px 8px 12px;
 ----------------------
 リセットcss先
 ----------------------
-/*margin: auto;は中央ぞろえになる？  */
-    margin: auto; 
-----------------------
 
 
 ----------------------
@@ -499,6 +494,20 @@ float パターン　clear　　float clear
 フレックスボックスおすすめ
 ウェブクリエーターボックス　
 フレックスボックスチートシート
+----------------------
+<form action="#"method="post">
+  <input type="email" name="email" id="email" placeholder="メールアドレス">
+  placeholder="最初から文字が入力フォームに半透明で入力されている"
+  value="最初から入力"
+</form>
+<button type="submit" class="btn btn-register" >無料ではじめる</button>
+        
+
+メール
+<input type="email" name="email" id="email" placeholder="メールアドレス">
+            
+            
+<button type="submit" class="btn btn-register" >無料ではじめる</button>
 
 ----------------------
 html　input
@@ -512,6 +521,7 @@ placeholder="薄く表示"
 /* border-radiusを4pxに指定してください */
   border-radius:4px;
 ------------------------------------------
+inputはtypeまで指定し、複数cssをあてるコピーしまくる
 inputタブを複数cssで設定する
 input[type="email"],input[type="text"]
 {
@@ -565,7 +575,7 @@ background-size:cover;
 
 
 ipadの一番大きいサイズ　768px
-ｐｃから一番大きいパッドまで
+ｐｃから一番大きいパッドまで　レスポンシブル
 /*スマホ要の表示 */
 @media only screen and (max-width:767px)
 {
@@ -591,30 +601,416 @@ body
 
 }
 ----------------------
+bootstrap
+-----------------
+色　公式colorで検索
+text-primary　青
+.text-primary
+
+.text-secondary 灰
+
+.text-success　緑
+
+.text-danger　赤
+
+.text-warning　黄色
+
+.text-info　水色
+text-white 白
+-----------------
+背景
+bg-primary
+bg-light 薄い灰色
+-----------------
+
+文字サイズなど公式ｔｙｐで検索
 ----------------------
+text-center
 ----------------------
+font-weight-bold
+font-weight-normal
+font-weight-light
 ----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
+文字のサイズ
+display-1
+display-2
 ----------------------
 
+
+
+幅などsizingで検索
+w-25 親の25%
+w-auto　
+h-50 親の50%
+----------------------
+pading　margin
+spacingで検索
+pading
+pt-5
+pr-5
+pb-5
+pl-5
+p-5 
+p-y5
+p-x5
+margin
+m-5
+m-y5
+----------------------
+Gridレイアウト
+grid KENNSAKU  
+containerのっクラスに入れる
+col
+一行を12分割
+col-6　半分50%
+１２を超えると自動的に割り込む
+----------------------
+画面サイズの制御
+
+col-  auto
+col-sm 540
+col-md 720
+col-lg 960
+col-xl 1140px
+
+col-md-4 720px以下の時画面3分の１
+----------------------
+ボタン　bottomで検索
+class="btn"でボタンの型
+btn-primary  色の指定
+btn-outline　外側だけ色ついて中白
+btn-lg　大きめのボタン
+----------------------
+nav バーを使う
+公式navで検索
+----------------------
+
+カードを使う
+cards検索　card　group
+----------------------
+2行2列
+<div class="row row-cols-2">
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+</div>
+----------------------
+2行3列
+<div class="row row-cols-3">
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+</div>
+----------------------
+1行4列
+<div class="row row-cols-4">
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+</div>
+----------------------
+row-col-md-3
+720px以下だったら3列
+----------------------
+list 公式listで検索
+縦の表みたいになる
+----------------------
+shit　conrl　ｆ
+複数行　自動改行
+----------------------
+forms 公式検索 31;21
+----------------------
+タグ名#id名　→　idが付く
+----------------------
+タグ名{要素}　→　タグの中に要素が入る
+----------------------
+ポートフォリオやサイトを作るとき、
+無料画像を探すなら『O-DAN』がオススメです！
+--------------------
+日本の無料画像がほしい場合は『タダピク』で検索しましょう！
+--------------------
+実際に上記の記事通りに作ったポートフォリオサイトがこちらです。
+
+Startkit(スタートキット) | 初めてのホームページ専門店
+--------------------
+テンプレ
+canvas or POLO ＋ 他の3つから1個
+
+「汎用テンプレ＋クリエイティブ系テンプレ」と2つ用意しとくと、作れるLPの幅が広がります。
+
+--------------------
+縦長ページの全体スクショとりかた
+
+１．フルスクリーンキャプチャーを撮りたいWebページを表示した状態で、
+画面右上にある［Google Chromeの設定］アイコン→［その他のツール］→［デベロッパーツール］の順にクリックします。
+２．デベロッパーツールが表示されたら、［toggle device toolbar］アイコンをクリックします（1）。
+すると画面の上部にWebページを表示するブラウザーの種類やサイズが表示されるので、必要に応じて変更も可能です（2）。
+３．デベロッパーツールの右上にある［More options］アイコン→［Capture full size screenshot］の順にクリックして、
+フルサイズのスクリーンショットを撮りますが表示されたら、［toggle device toolbar］をクリックします（1）。
+すると画面の上部にWebページを表示するブラウザーの種類やサイズが表示されるので、必要に応じて変更も可能です。
+---------------------
+CSS設計完全ガイド
+---------------------
+javascript
+----------------------
+1
+文字出力
+
+console.log("hello")
+
+----------------------
+2
+変数
+let kazu000=25
+let moji="mojidesu"
+
+定数　変化させない数字
+const kazu=99
+
+数字からの変数名はエラー
+let　999kaku これはエラー
+--------------------
+
+文字列に変数をうめこむ
+let name="taro"
+console.log('こんにちは ${name}')
+>こんにちは taro
+---------------------
+3
+関数
+
+function(data){
+  return date*2
+
+}
+---------------
+複数の引数
+function(name1,name2){
+
+}
+function("taro","jiro")
+---------------------
+4
+75>45
+>true
+100<9
+>false
+----------------------
+if(56>20){
+
+}
+かつ
+if(score>=20 && score<=80){
+
+}
+または
+if(score>=20 || score<=80){
+
+}
+----------------------
+5
+swithch(score){
+  case 1:
+    console.log(score)
+    break
+  case 1:
+    console.log(score)
+    break
+  case 1:
+    console.log(score)
+    break
+  default :
+    console.log("その他")
+}
+--------------------
+6
+配列
+scores=[20,10,300]
+配列に新たな値を入れる
+scores.push[90]
+scores.push["hello"]
+scores.push[true]
+>[20,10,300,"hello",true]
+
+何個データが入っているか
+scores.length
+>5
+要素の最後を削除する
+scores.pop
+>[20,10,300,"hello"]
+最初の要素を削除する
+scores.shift()
+>[10,300,"hello"]
+---------------------
+6
+オブジェクト  キーとバリューがある
+scores={
+  math:87,
+  science:34,
+  english:67
+}
+scores['englishu']
+scores.english
+>67
+値を変える
+scores.english＝0;
+---------------------
+配列とオブジェクトを組み合わせる
+
+allScores=[
+  {math:87,science:34,english:67}
+  {math:77,science:74,english:77}
+]
+データを取り出す
+allScores.[1].english
+>77
+----------------------
+オブジェクトの中に関数を入れる（ジャバスクリプトでいうメソッド）
+scores={
+  math:90,
+  message:function(){
+    console.log("メッセージです")
+  }
+}
+scores.message()
+>メッセージです
+----------------------
+オブジェクト内で　そのオブジェクトの要素をメソッドで使うthis
+user={
+  firstName:taro,
+  lastName:yamada,
+  fullName:fuction(){
+    return'${this.lastName} ${this.firstName}'
+  }
+  //さらにオブジェクトの要素ファンクションを別のファンクションで使う
+  SAY:fuction(){
+    const:NAME=this.fullname()
+    return'${NAME}です'
+  }
+}
+----------------------
+繰り返し
+const scores=[1,2,3,4,5,6]
+for(let score of scores){
+  console.log(score)
+}
+毎度のforeach
+scores.firEach(function(score){
+  console.log(score)
+})
+いつもの
+for(let i=0;i<5;i++){}
+----------------------
+htmlでjavascriptを使うdom
+
+javascriptでhtmlを取得する方法
+１．htmlのidでhtmlを取得＞アラートで表示
+<h2 id="service-title">30DAYSトライアル</h2>
+
+alert( document.getElementById('service-title').outerHTML ) 
+
+2.
+/* ②HTMLデータを取得しよう（classで取得編） */
+/* document.getElementsByClassNameは、
+documentの中から指定したclassがついてるHTMLオブジェクトを探して取得してくれます。
+idとは違い、配列で返ってくる点に注意しましょう！*/
+<p class="lead">1日1題30日でプログラマーになろう！</p>
+<p class="lead">JavaScript学習中</p>
+
+alert( document.getElementsByClassName('lead')[0].outerHTML ) 
+alert( document.getElementsByClassName('lead')[1].outerHTML )
+
+３．
+/* ③HTMLデータを取得しよう（タグで取得編） */
+/* document.getElementsByTagNameは、documentの中から指定したタグが
+ついてるHTMLオブジェクトを探して取得してくれます。
+idとは違い、配列で返ってくる点に注意しましょう！*/
+<a href="https://tokyofreelance.jp/" id="register" class="btn btn-register">登録</a>
+
+alert( document.getElementsByTagName('a')[0].outerHTML ) 
+----------------------
+<h2 id="service-title">30DAYSトライアル</h2>
+のテキスト「30DAYSトライアル」を変化させる
+
+document.getElementById('service-title').innerText = 'デイトラ'
+----------------------
+/* ⑤JavaScriptでHTML要素を追加しよう */
+const login_btn = document.createElement('a') //新規にaタグを作成
+login_btn.innerText = 'ログイン' //テキストを追加
+
+//setAttribute(属性名, 値) でid="login"を追加
+login_btn.setAttribute('id', 'login') 
+
+login_btn.setAttribute('class','btn')　//class="btn"を追加
+
+//href="https://tokyofreelance.jp/"を追加
+login_btn.setAttribute('href','https://tokyofreelance.jp/')　
+
+//親要素.appendChild(追加したい要素)でlogin_btnを追加  */
+document.getElementById('js-for-web').appendChild(login_btn) 
+
+ログインボタンが追加されれば成功です！ 
+javascript公式
+https://developer.mozilla.org/ja/docs/Web/API/Element
+----------------------
+/* ⑥JavaScriptからクリック操作してみよう */
+/* document.getElementById("register").click() */
+/* リンク先にページ遷移できてれば成功です */
+----------------------
+/* ⑦イベント処理を追加しよう（onload編） */
+/* window.onload() = funciton(){}でDOM（HTMLデータ）が
+読み込まれた後に実行したい処理を追加します。1セットで覚えておきましょう！
+読み込み後に実行したい処理はfunction() {  }の中に書きます。*/
+window.onload = function() {
+  document.getElementById('service-title').innerText = 'デイトラ' 
+} 
+----------------------
+/* ⑧イベント処理を追加しよう（click編）
+ユーザーによってボタンがクリックされたときの処理を追加します。
+イベントの処理にはaddEventListener()メソッドを使います。第一引数に監視したいイベント、第二引数にそのイベントが起きた時の処理を書きます。第二引数は必ずfunction にしておきましょう！それでは実行後に「クリック」ボタンを押してみてください。 */
+document.getElementById("button").addEventListener('click', function() {
+  document.getElementById('service-title').innerText = 'デイトラ' 
+})
+clickの他にも監視できるイベントはたくさんあるので、
+詳しくはこちらのイベント一覧を見てください
+https://developer.mozilla.org/ja/docs/Web/Events
+*/
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
 
 
 
