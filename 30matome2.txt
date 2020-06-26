@@ -979,21 +979,229 @@ clickの他にも監視できるイベントはたくさんあるので、
 https://developer.mozilla.org/ja/docs/Web/Events
 */
 ----------------------
+jquery をhtmlに組み込む 
+
+html　のheadに入れる
+<!-- jQueryのライブラリー本体を読み込む -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<!-- 必ずjQuery本体を読み込んだ後にjQueryで書いたファイルを読み込む-->
+<script src="js/practice.js"></script>
 ----------------------
+$(function() {  
+  //この中にプログラムを書いていきます
+  
+});
 ----------------------
+/* ②jQueryの書き方ルール 
+$("主語").動詞("補語");
+という文法ルールです。
+試しにh2のテキストを「デイトラ」にかえるコードを書いてみましょう↓
+*/
+$(function() {  
+  //h2の 文字を変える デイトラに
+  $('h2').text('デイトラ');
+});
+
+document.getElementByTagName('h2').innerText = 'デイトラ' 
 ----------------------
+$(function() {  
+  //aを 隠す
+  $('a').hide();
+  //主語と動詞で完結する場合は補語は不要です
+});
+document.getElementByTagName('a').style.display = 'none' 
 ----------------------
+/* セレクタの指定の仕方3パターンまとめ
+
+■タグ名で指定する
+$("h2")
+
+■クラス名で指定する
+$(".lead")
+
+■ID名で指定する
+$("#js-for-web")
 ----------------------
+.text()	テキストを取得する
+.text('変更したいテキスト')	テキストを''内の文字列に変更する
+.html()	HTMLを取得する
+.html('変更したいHTML')	HTMLを''内のHTMLに変更する
+.click() 対象要素をクリックする
+.prepend('要素')	要素の先頭にHTMLを挿入する
+例：$(#lists).prepend('<li>先頭に追加するリスト</li>')
+.append('要素')	要素の最後にHTMLを挿入する
+例：$(#lists).append('<li>最後に追加するリスト</li>')
+.remove()	要素を削除する
+.attr('属性')	指定した属性の値を取得する
+例：$(a#special-link).attr('href')
+.attr('属性', '値')	指定した属性の値を変更する
+例：$(a#special-link).attr('href', 'https://xxxx.com')
+.removeAttr(属性名)	指定した属性を削除する
+.addClass(class属性値)	class属性を追加する
+例：$(#button).addClass('active')
+.removeClass(class属性値)	class属性を削除する
+例：$(#button).removeClass('active')
+.css(プロパティ名)	指定したCSSプロパティの値を取得する
+例：$(#logo).css('color')
+.css(プロパティ名,値)	指定したCSSプロパティの値を設定する
+例：$(#logo).css('color','red')
+val（）	フォームの入力値（value属性の値）を取得する
+例：$(input#name).val()
+val（"入力値"）	フォームの入力値（value属性の値）を設定・上書きする
+例：$(input#name).val('tofuri')
+
+アラート
+alert()
+変数の値をアラートで表示
+alert(hensu)
+
+.text()テキストを取得する
+.text('変更したいテキスト')テキストを''内の文字列に変更する
+.html()HTMLを取得する
+.html('変更したいHTML')HTMLを''内のHTMLに変更する
+.click() 対象要素をクリックする
+.prepend('要素')要素の先頭にHTMLを挿入する
+例：$(#lists).prepend('< li >先頭に追加するリスト< /li >')
+.append('要素')要素の最後にHTMLを挿入する
+例：$(#lists).append('< li >最後に追加するリスト< /li >')
+.remove()要素を削除する
+.attr('属性')指定した属性の値を取得する
+例：$(a#special-link).attr('href')
+.attr('属性', '値')指定した属性の値を変更する
+例：$(a#special-link).attr('href', 'https://xxxx.com')
+.removeAttr(属性名)指定した属性を削除する
+.addClass(class属性値)class属性を追加する
+例：$(#button).addClass('active')
+.removeClass(class属性値)class属性を削除する
+例：$(#button).removeClass('active')
+.css(プロパティ名)指定したCSSプロパティの値を取得する
+例：$(#logo).css('color')
+.css(プロパティ名,値)指定したCSSプロパティの値を設定する
+例：$(#logo).css('color','red')
+val（）フォームの入力値（value属性の値）を取得する
+例：$(input#name).val()
+val（"入力値"）フォームの入力値（value属性の値）を設定・上書きする
+例：$(input#name).val('tofuri')
 ----------------------
+練習問題：inputの値によって登録ボタンとログインボタンを出し分けるプログラム 
+①inputタグのvalueを取得
+
+②valueがvisiterなら「ボタン」の文字を"登録"に + btn-loginクラスを削除
+③btn-registerクラスを追加
+④valueがuserなら「ボタン」の文字を"ログイン"に + btn-resigterクラスを削除
+⑤btn-loginクラスを追加
+
+
 ----------------------
+$(function() {  
+  //この中にプログラムを書いていきます
+  status=$("#user-status").val()
+  alert(status)
+	btn=$("#register")  
+  if(status==='visiter'){
+  	btn.text('登録')
+    btn.removeClass('btn-login')
+    btn.addClass('btn-register')
+  }
+  else if(status==='user'){
+  	btn.text('ログイン')
+    btn.removeClass('btn-register')
+    btn.addClass('btn-login')
+    
+    $('.login-area').append('<a href="http"class="btn btn-withdraw">退会</a>')
+  }
+
+});
 ----------------------
+/* ③さらに詳しく指定する */
+/* 指定要素の子要素からセレクタに当てはまる要素を取ってくる
+find()メソッド
+id="s-for-web"の中のpタグを配列で取得
+var texts = $('#js-for-web').find('p');
+
+console.log(texts[0]);
 ----------------------
+/* .children('セレクタ')　対象要素の直属の子要素から、セレクタに該当するものを取ってくる。 */
+var texts = $('#js-for-web').children('p');
+
+console.log(texts[0]); 
 ----------------------
+/* ④イベント処理（click編） */
+/* ボタンがクリックされたときの処理を書いてみましょう。
+↑のHTMLファイルのbuttonタグにかかっているコメントアウトを外してください。
+jsではaddEventListener()メソッドを使って書きましたが、
+jqueryを使うとはるかにシンプルに書くことができます。試しに、
+#buttonをクリックすると#service-titleの文字が変わるプログラムを書いてみましょう！
+*/
+
+//js
+document.getElementById("button").addEventListener('click', function() {
+  document.getElementById('service-title').innerText = 'デイトラ' 
+}) 
+
+//jQuery　圧倒的にシンプル！
+$('#button').click(function(){
+  $('#service-title').text('デイトラ');
+});
 ----------------------
+/* ⑤イベント処理（hover編） */
+/* 続いて、ホバーされたときに処理を書いてみましょう。
+hoverイベントはfunctionをコンマ区切りで2個続けて書くことができ、最初に「ホバーされたときの処理」、2つ目に「ホバーが外れたときの処理」を書きます。
+$('#language-wrapper').hover( 
+  function() {
+  //ここにホバーされたときの処理を書く
+  
+  },
+  function() {
+  //ここにホバーが外れたときの処理を書く
+
+  }
+);
+それでは例として、#service-titleにホバーするとテキストの色がオレンジになるプログラムを書いてみましょう！
+*/
+$('#service-title').hover( 
+  function() {
+  //ここにホバーされたときの処理を書く
+    $(this).css('color','orange');
+  },
+  function() {
+  //ここにホバーが外れたときの処理を書く
+      $(this).css('color','#082B48');
+  }
+);
 ----------------------
+アニメーションの一覧はこちらから↓
+https://api.jquery.com/category/effects/
+
+//⑥スライドのように開閉して表示
+$('#service-title').hover(
+  function(){
+    $('#register').slideUp();
+  },
+  function(){
+    $('#register').slideDown();
+  }
+); 
+//⑦フワッと浮き上がる表示
+$('#service-title').hover(
+  function(){
+    $('#register').fadeIn();
+  },
+  function(){
+    $('#register').fadeOut();
+  }
+);
 ----------------------
+※なお、「jQuery ドロワーメニュー」などで検索すると、
+まずライブラリを使った実装方法がヒットすると思いますが、
+今回はjQueryライブラリの利用はナシです！
+自分でjQueryコードを書いて自作してください。
 ----------------------
-----------------------
+slideToggle
+
+$("#id").on("click", function() {
+  $(this).next().slideToggle();
+});
 ----------------------
 ----------------------
 ----------------------
