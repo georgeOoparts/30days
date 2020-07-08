@@ -1203,15 +1203,124 @@ $("#id").on("click", function() {
   $(this).next().slideToggle();
 });
 ----------------------
+プログラマ用メモ帳bootstone
 ----------------------
+css
+リストの点を消す
+list-style:none;
+
+横並びにする
+display:flex;
 ----------------------
+sass お試し
+https://www.sassmeister.com/
 ----------------------
+sass
+の入れ子
+.lists{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  
+  li{
+    width:25%;
+    text-align:center;
+    
+    a{
+      color:red;
+      font-size:16px;
+    }
+    
+  }
+}
+
+ｃｓｓで書くと
+.lists {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.lists li {
+  width: 25%;
+  text-align: center;
+}
+.lists li a {
+  color: red;
+  font-size: 16px;
+}
 ----------------------
+sass　継承　クラス　ホバー
+a{
+      color:red;
+      font-size:16px;
+      
+      &:hover{
+        color:green;
+      }
+      
+      &.active{//aタグのactive
+        color:yellow;
+      }
+    }
 ----------------------
+sass変数
+色を変数にする
+サイズを変数にする
+＄link-color:yellow;
+＄link-size:20px;
+
+a{
+  color:＄link-color;
+  font-size:＄link-size + 5px;
+}
+
 ----------------------
+拡張　extend
+.button{
+    color: #333;
+    font-size: 16px;
+    display: inline-block;
+    margin-top:20px;
+    padding: 8px 16px;
+    border: 1px solid #333;
+    text-decoration: none;
+}
+a{
+  @extend .button;
+}
 ----------------------
+include　(引数のあるextend)　mixin
+@mixin button($font-size){
+    color: #333;
+    font-size: $font-size;
+    display: inline-block;
+    margin-top:20px;
+    padding: 8px 16px;
+    border: 1px solid #333;
+    text-decoration: none;
+}
+
+a{
+  @include button(10px);
+｝
 ----------------------
+メディアクエリ　
+day35　０５
 ----------------------
+function　ファンクション
+@function kaizou($font-size){
+  @return $font-size+10px;
+}
+
+$font-size:20px;
+
+a{
+  font-size:kaizou($font-size);
+}
+----------------------
+
 ----------------------
 ----------------------
 ----------------------
