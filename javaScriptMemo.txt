@@ -1,0 +1,511 @@
+
+console.log('hello');
+
+------------------------------------------
+console.log(5+2);
+>>7
+
+console.log("5+2");
+>>5+2
+
+console.log("5"+"2");
+>>52
+------------------------------------------
+let name="ninja";
+
+数字からの変数名はエラー
+let　999kaku これはエラー
+------------------------------------------
+const name="ninja";
+------------------------------------------
+コンソールの中に変数を入れる
+const name="ninja";
+console.log('hello ${name}');
+>>hello ninja
+------------------------------------------
+console.log(11>10);
+>>true
+------------------------------------------
+if文書く時　注意
+a===b
+a!==b
+------------------------------------------
+スイッチ
+const rank = 5;
+
+switch (rank) 
+{
+  case 1:
+    console.log("金メダルです！");
+    break;
+  case 2:
+    console.log("銀メダルです！");
+    break;
+  case 3:
+    console.log("銅メダルです！");
+    break;
+  // defaultの処理を追加してください
+  default:
+    console.log("メダルはありません");
+    break;
+}
+------------------------------------------
+for
+for (let number=1;number<=100 ;number++) 
+{
+  console.log(number);
+  
+}
+------------------------------------------
+配列はconstでも要素変更可能
+const animals=["dag","cat","sheep"];
+----------------
+配列の要素数を出力
+console.log(animals.length);
+>>3
+------------------------------------------
+オブジェクト（javascriptでいう）　文字に紐づけられた配列
+const character={name:"にんじゃわんこ",age:14};
+------------
+console.log(character.name);
+------------------------------------------
+配列とオブジェクト組み合わせ  配列の中にオブジェクト
+const characters = [
+  {name: "にんじゃわんこ", age: 14},
+  {name: "ひつじ仙人", age: 1000}
+];
+----------
+// charactersの2つ目の要素の「name」に対応する値をコンソールに出力してください
+console.log(characters[1].name);
+>>ひつじ仙人
+--------------
+存在しない要素を指定した場合
+if文などと組み合わせること多い？if(characters[1].email===undefined)　
+console.log(characters[1].email);
+>>undefined
+------------------------------------------
+オブジェクトのプロパティがオブジェクトの場合
+const cafe = {
+  name: "Progateカフェ",
+  businessHours: {
+    opening:"10:00(AM)",
+    closing:"8:00(PM)"
+  },
+};
+--------------
+オブジェクトのプロパティ呼び出す
+console.log(`店名:${cafe.name}`);
+--------------
+オブジェクトの中のオブジェクトのプロパティ呼び出し
+console.log(`営業時間: ${cafe.businessHours.opening}から${cafe.businessHours.closing}`);
+------------------------------------------
+// 関数の引数にnumber1とnumber2を追加してください
+const add = (number1,number2) => {
+  // number1とnumber2を足した値をコンソールに出力してください
+  console.log(number1+number2);
+  
+};
+
+// 引数に5と7を渡して関数を呼び出してください
+add(5,7);---------
+---------
+const check = (number) => {
+  // numberが3の倍数かどうかを戻り値として返してください
+  return number%3===0;
+};
+
+// if文の条件式で、checkを呼び出してください
+if (check(123)) {
+  console.log("3の倍数です");
+} else {
+  console.log("3の倍数ではありません");
+}
+---------
+const number1 = 103;
+const number2 = 72;
+const number3 = 189;
+
+// getMax関数を定義してください
+const getMax=(a,b,c)=>{
+  let max=a;
+  if(b>max)
+  {
+    max=b;
+  }
+  
+  if(max<c)
+  {
+    max=c;
+  }
+  return max;
+}
+
+// 「最大値は○○です」と出力してください
+const max=getMax(number1,number2,number3);
+console.log(`最大値は${max}です`);
+------------------------------------------
+オブジェクトの中に関数
+const animal=
+{
+  name:"レオ",
+  age:3,
+  greet:()=>
+    {
+      console.log("こんにちは");
+    }
+  
+}
+
+// animalのnameプロパティの値を出力してください
+console.log(animal.name);
+
+// animalのgreetプロパティの関数を実行してください
+animal.greet();
+
+------------------------------------------
+クラス
+クラスをインスタンスにする
+クラスに一番最初に読み込まれるコンストラで　2つのプロパティと値を追加
+クラスにコンストラで　2つのプロパティと値を追加　引数に入れて
+class Animal {
+  // 引数に「name」と「age」を追加してください
+  constructor(name,age) {
+    // 「"レオ"」の代わりに引数nameの値を代入してください
+    this.name = name;
+    
+    // 「3」の代わりに引数ageの値を代入してください
+    this.age = age;
+  }
+}
+
+// 引数に「"モカ"」と「8」を渡してください
+const animal = new Animal("モカ",8);
+
+console.log(`名前: ${animal.name}`);
+console.log(`年齢: ${animal.age}`);
+---------
+クラス　のメソッド呼び出す
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  // greetメソッドを追加してください
+  greet()
+  {
+    console.log("こんにちは");
+  }
+  
+}
+
+const animal = new Animal("レオ", 3);
+
+console.log(`名前: ${animal.name}`);
+console.log(`年齢: ${animal.age}`);
+
+// animalに対してgreetメソッドを呼び出してください
+animal.greet();
+---------
+クラス内でクラスのプロパティを使う。
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  greet() {
+    console.log("こんにちは");
+  }
+  
+  // infoメソッドを追加してください
+  info(){
+    console.log(`名前は${this.name}です`);
+    console.log(`${this.age}歳です`);
+  }
+  
+}
+
+const animal = new Animal("レオ", 3);
+animal.greet();
+
+// animalに対してinfoメソッドを呼び出してください
+animal.info();
+---------
+クラス内のメソッドをクラス内のメソッドの中で使う
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  greet() {
+    console.log("こんにちは");
+  }
+  
+  info() {
+    // greetメソッドを呼び出してください
+   this.greet(); 
+    
+    console.log(`名前は${this.name}です`);
+    console.log(`${this.age}歳です`);
+  }
+}
+
+const animal = new Animal("レオ", 3);
+
+
+animal.info();
+
+---------
+クラスの継承
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  greet() {
+    console.log("こんにちは");
+  }
+  
+  info() {
+    this.greet();
+    console.log(`名前は${this.name}です`);
+    console.log(`${this.age}歳です`);
+  }
+}
+
+// Animalクラスを継承してDogクラスを定義してください
+class Dog extends Animal{
+  
+}
+
+
+const animal = new Animal("レオ", 3);
+animal.info();
+
+---------
+継承したクラスで継承元のクラスのメソッドを使う
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  greet() {
+    console.log("こんにちは");
+  }
+  
+  info() {
+    this.greet();
+    console.log(`名前は${this.name}です`);
+    console.log(`${this.age}歳です`);
+  }
+}
+
+class Dog extends Animal {
+}
+
+// 定数dogにDogクラスのインスタンスを代入してください
+const dog=new Dog("レオ",4);
+
+// dogに対してinfoメソッドを呼び出してください
+dog.info();
+
+---------
+継承したクラスのメソッドを使う
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  greet() {
+    console.log("こんにちは");
+  }
+  
+  info() {
+    this.greet();
+    console.log(`名前は${this.name}です`);
+    console.log(`${this.age}歳です`);
+  }
+}
+
+class Dog extends Animal {
+  // getHumanAgeメソッドを追加してください
+  getHumanAge(){
+    return this.age*7;
+  }
+
+}
+
+const dog = new Dog("レオ", 4);
+dog.info();
+
+// 定数humanAgeを定義し、定数dogに対してgetHumanAgeメソッドを呼び出した値を代入してください
+const humanAge=dog.getHumanAge();
+
+// 「人間年齢で〇〇歳です」と出力してください
+console.log(`人間年齢で${humanAge}歳です`);
+---------
+クラスの継承　継承元のクラスからプロパティ使いまわす（ここだけでOK）
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  greet() {
+    console.log("こんにちは");
+  }
+  
+  info() {
+    this.greet();
+    console.log(`名前は${this.name}です`);
+    console.log(`${this.age}歳です`);
+  }
+}
+
+class Dog extends Animal {
+  // infoメソッドを追加してください
+  info(){
+    this.greet();
+    console.log(`名前は${this.name}です`);
+    console.log(`${this.age}歳です`);
+    
+    const humanAge = this.getHumanAge();
+    console.log(`人間年齢で${humanAge}歳です`);
+  }
+
+  getHumanAge() {
+    return this.age * 7;
+  }
+}
+
+const dog = new Dog("レオ", 4);
+dog.info();
+---------
+クラスのオーバーライド
+子クラスに　親のプロパティ追加と継承
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  greet() {
+    console.log("こんにちは");
+  }
+  
+  info() {
+    this.greet();
+    console.log(`名前は${this.name}です`);
+    console.log(`${this.age}歳です`);
+  }
+}
+
+class Dog extends Animal {
+  // constructorを追加してください
+  constructor(name,age,breed){
+    super(name,age);
+    this.breed=breed;
+  }
+  
+  info() {
+    this.greet();
+    console.log(`名前は${this.name}です`);
+    // 「犬種は〇〇です」と出力してください
+    
+    
+    console.log(`${this.age}歳です`);
+    const humanAge = this.getHumanAge();
+    console.log(`人間年齢で${humanAge}歳です`);
+    console.log(`犬種は${this.breed}です`);
+  }
+  
+  getHumanAge() {
+    return this.age * 7;
+  }
+}
+
+// 3つ目の引数に「"チワワ"」を渡してください
+const dog = new Dog("レオ", 4,"チワワ");
+dog.info();
+---------
+クラスの　インポート　エクスポート
+エクスポート
+あるファイルのクラスを　別ファイルで使えるようにする、継承できるようにする
+// Animalクラスをエクスポートしてください
+export default Animal;
+インポート
+別ファイルのクラス使えるようにする、継承
+// Dogクラスをエクスポートしてください
+import Animal from "./dog";
+---------
+定数の　インポート　エクスポート
+エクスポート
+const dog="inu";
+export default dog;
+
+インポート
+import dog from "./ファイル名";
+---------
+一つのファイルで複数のエクスポートをする
+インポート
+const dog1="inu1";
+export{dog1};
+エクスポート
+import { dog1 } from "./ファイル名";
+---------
+一つのファイルで複数のエクスポートをする
+インポート
+export{dog1,dog2};
+エクスポート
+import { dog1,dog2 } from "./ファイル名";
+---------
+相対パス　1つ戻る
+../
+---------
+パッケージ（誰かが作ったプログラム　今回はchalk）を読み込む
+import chalk from "chalk";
+
+//chalkは文字の色を変えられる。
+// console.logの中身をchalkを使って書き換えてください
+    console.log(chalk.yellow(`名前は${this.name}です`));
+---------
+readline-syncというパッケージを導入すると、コンソールへの値の入力と、
+その入力された値をプログラムの中で使うことができるようになります。
+左の図のようにインポートし、readlineSync.question(質問文) のように記述します。
+質問文が出力されると一旦処理が止まり、コンソールに値が入力されると、次の処理に進みます。
+
+// readline-syncをインポートしてください
+import readlineSync from"readline-sync";
+
+
+// readlineSync.questionを使って書き換えてください
+const name = readlineSync.question("名前を入力してください: ");;
+
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+---------
+
+------------------------------------------
+------------------------------------------
+------------------------------------------
+------------------------------------------
+------------------------------------------
+------------------------------------------
+------------------------------------------
+------------------------------------------
+
