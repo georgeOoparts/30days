@@ -15,7 +15,7 @@ jq 読み込み例
   
 </body>
 -----------------------------------------------------------------
-script.jsに書く
+script.jsに書く この中
 $(function(){
 
 });
@@ -135,16 +135,93 @@ $('#language-wrapper').hover(
     }
 );
 -----------------------------------------------------------------
-html にクラスを付け足す 6made
+クラスを新たに付け足す
+$(this).find('.text-contents').addClass('text-active');
+-----------------------------------------------------------------
+ // 子要素の「.text-contents」の要素を取得し、text-activeクラスを外してください
+      $(this).find('.text-contents').removeClass('text-active');
+-----------------------------------------------------------------
+そのクラスを持っていればtrue　持っていなければfalse
+$(this).hasClass('open');
+-----------------------------------------------------------------
+// FAQのアコーディオン
+  $('.faq-list-item').click(function() {
+    var $answer = $(this).find('.answer');
+    if($answer.hasClass('open')) { 
+      $answer.removeClass('open');
+      // slideUpメソッドを用いて、$answerを隠してください
+      $answer.slideUp();
 
+      // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
+      $(this).find('span').text('+');
+      
+    } else {
+      $answer.addClass('open'); 
+      // slideDownメソッドを用いて、$answerを表示してください
+      $answer.slideDown();
+      
+      // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
+      $(this).find('span').text('-');
+      
+    }
+  });
 -----------------------------------------------------------------
+アイコンの上にホバーしたらクラスを付け足し、画面を表示させる技
+ｃｓｓ
+.text-contents {
+  display:none;
+}
+.text-active{
+  display:block;
+}
+
+ｊｑ
+$('.lesson').hover(
+    function(){
+      $(this).find('.text-contents').addClass('text-active');  
+    },
+    function(){
+      $(this).find('.text-contents').removeClass('text-active');  
+    }
+  );
 -----------------------------------------------------------------
+eq()メソッド
+ｈｔｍｌ
+<ul class="slides">
+          <li class="slide"><img src="https://s3-ap-northeast-1.jpg"></li>
+          <li class="slide"><img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/rainy.jpg"></li>
+          <li class="slide"><img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/autumn.jpg"></li>
+          <li class="slide"><img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/winter.jpg"></li>
+        </ul>
+ｊｑ
+$('.slide').eq(1).fadeOut();2番目のリスト取得
+--------------------
+クリックしたインデックス番号を得る技
+ $('.slide').click(function() {
+    var clickedIndex=$('.slide').index(this);
 -----------------------------------------------------------------
+クラスを代入する変数
+var $class;
+数を代入する変数
+var number;
 -----------------------------------------------------------------
------------------------------------------------------------------
------------------------------------------------------------------
------------------------------------------------------------------
------------------------------------------------------------------
+
+$('.change-btn').click(function() {
+    // 変数$displaySlideを定義してください
+    var $displaySlide=$('.active');
+    
+    // 変数$displaySlideからactiveクラスを取り除いてください
+    $displaySlide.removeClass('active');
+    
+    // ifとelseを用いて、$displaySlideの前もしくは次の要素に
+    if($(this).hasClass('next-btn')){
+      $displaySlide.next().addClass('active');
+    }
+    else{
+      $displaySlide.prev().addClass('active');
+    }
+    
+  });
 -----------------------------------------------------------------
 -----------------------------------------------------------------
 -----------------------------------------------------------------
