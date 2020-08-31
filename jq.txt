@@ -4,15 +4,14 @@ jq 読み込み例
   <title>Progate</title>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!-- scriptタグを用いて、jQueryを使えるように読み込んでください -->
+  <!-- jQueryの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   
 </head>
 -----------------------------------------------------------------
-</body>の直前でファイル呼び込む
-<!-- scriptタグを用いて、script.jsを読み込んでください -->
-  <script src="script.js"></script>
-  
+//</body>の直前でファイル呼び込む
+<!-- script.jsの読み込み -->
+  <script src="script.js"></script>  
 </body>
 -----------------------------------------------------------------
 script.jsに書く この中
@@ -22,30 +21,6 @@ $(function(){
 -----------------------------------------------------------------
 -----------------------------------------------------------------
 -----------------------------------------------------------------
-
-
-
-
-jq 読み込み例
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Progate</title>
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <!-- jQueryの読み込み -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-</head>
-<body>
-  <!--以下で、<h1>タグを用いて「Hello, World」と表示してください-->
-  <h1>Hello, World</h1>
-  
-  <!-- script.jsの読み込み -->
-  <script src="script.js"></script>
-
-</body>
-</html>
-
-ここから別ファイルscript.js（JQが書かれている）を読込
 -----------------------------------------------------------------
 h1タグを消すhide
 $(function() {
@@ -144,6 +119,75 @@ $(this).find('.text-contents').addClass('text-active');
 そのクラスを持っていればtrue　持っていなければfalse
 $(this).hasClass('open');
 -----------------------------------------------------------------
+新規登録をクリックすると、モーダル表示
+モーダルの中の×ボタン押すとモーダル非表示
+
+html
+<!-- モーダル部分 -->
+  <div id="signup-modal">
+    <div>
+      <div id="close-modal">//×ボタン
+        <i class="fa fa-2x fa-times"></i>
+      </div>
+      
+    </div>
+  </div>
+  <div id="#signup-show">新規登録</div>
+css
+#signup-modal{
+  display:none;
+}
+jQ
+$(function(){
+  $('#signup-show').click(function(){
+    $('#signup-modal').fadeIn()();
+  });
+  
+  $('#close-modal').click(function(){
+    $('#signup-modal').fadeOut();
+  });
+});
+-----------------------------------------------------------------
+css world
+ボタンを作る
+html
+<div class="btn">新規登録はこちら</div>
+css
+//共通のボタン
+.btn{
+  //ボタンの大きさ文字からのお余裕
+  padding: 24px 24px;
+  //ボタンに書かれた文字の色
+  color: white;
+  //背景の色
+  background-color: red;
+  //ボタンはinline-blockがおすすめblockにすると配置がわけわからん
+  //inline-blockは勝手にボタンが中央ぞろえになる
+  display: inline-block;
+  //ちょっと色を透明にする
+  opacity: 0.8;
+  border-radius: 4px;
+  cursor: pointer;
+}
+//マウスを上に乗せると透明度が無くなる
+.btn:hover {
+  opacity: 1;
+}
+//個々のボタン
+.btn-signUp{
+
+}
+
+
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+
 // FAQのアコーディオン
   $('.faq-list-item').click(function() {
     var $answer = $(this).find('.answer');
@@ -205,7 +249,7 @@ var $class;
 数を代入する変数
 var number;
 -----------------------------------------------------------------
-
+進む、戻るボタンで画像の表示変える
 $('.change-btn').click(function() {
     // 変数$displaySlideを定義してください
     var $displaySlide=$('.active');
