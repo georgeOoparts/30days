@@ -1,0 +1,56 @@
+画像１　　　画像２　　　画像３
+ボタン1　　ボタン２　　ボタン３のように表示
+//ボタンクリックすると、ボタン押したように表示
+html
+<div class="option-wrapper">
+    <div class="option-group">
+        <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_baby_wanko.png">
+        <div class="option-btn" data-option="1">1. ベイビーわんこ</div>
+    </div>
+    <div class="option-group">
+        <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_wanko.png">
+        <div class="option-btn" data-option="2">2. にんじゃわんこ</div>
+    </div>
+    <div class="option-group">
+        <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_hitsuji.png">
+        <div class="option-btn" data-option="3">3. ひつじ仙人</div>
+    </div>
+</div>
+
+css
+.option-wrapper {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.option-group {
+  margin-bottom: 12px;
+  margin: 20px auto;
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.option-image {
+  width: 120px;
+  height: auto;
+}
+
+.option-btn {
+  cursor: pointer;
+  width: 154px;
+  margin: 10px;
+  padding: 12px 0;
+  text-align: center;
+  background-color: #5dca88;
+  //ボタンに影作る　下方向のみ
+  box-shadow: 0px 4px #279C56;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+}
+//ボタンクリックすると、ボタン押したように表示
+.option-btn:active{
+  position: relative;
+  top: 2px;
+  box-shadow: none;
+}
