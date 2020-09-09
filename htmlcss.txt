@@ -1,0 +1,380 @@
+css
+h1{
+  font-family:serif;
+}
+p{//フォント名にスペースがある場合
+  font-family:"Avenir Next";
+}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- 雛形をコピーして、3つの要素を追加してください -->
+    <!-- 文字コードを「utf-8」にしてください -->
+    <meta charset="utf-8">
+    
+    <!-- タイトルを「Progate」にしてください -->
+    <title>Progate</title>
+    
+    <!-- 「stylesheet.css」を読み込んでください -->
+    //cssを使う。使うcssファイルはstylesheet.css
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+  </body>
+</html>
+------------------------------------------------------
+リストの前の・を消す
+css
+li{
+    list-style: none;
+}
+------------------------------------------------------
+プロゲート
+リスト１
+リスト２
+リスト３
+を
+プロゲートリスト1リスト２リスト３
+と横並びにする。
+html
+<div class="header-logo">Progate</div>
+<div class="header-list">
+  <ul>
+    <li>プログラミングとは</li>
+    <li>学べるレッスン</li>
+    <li>お問い合わせ</li>
+  </ul>
+</div>
+css
+li{
+    list-style: none;
+    float: left;
+}
+.header-logo{
+  font-size: 36px;
+  float: left;
+}
+------------------------------------------------------
+ブロック要素　DIV　H1　P
+改行される
+width height　〇
+margin　padding　〇
+配置　縦並び
+
+インライン要素SPAN　a
+改行されない
+width height　×
+margin　padding　△　左右のみ指定できる
+配置　横並び
+
+インラインブロック要素
+改行されない
+width height　〇
+margin　padding　〇
+配置　横並び
+cssで要素を変更
+CSS｛
+  display:inline-block;
+｝
+------------------------------------------------------
+四角で囲む線
+.section-title{
+  border:2px solid #dee7ec;
+}
+下線
+/* section-titleのborder-bottomを指定してください */
+.section-title{
+  border-bottom:2px solid #dee7ec;
+}
+------------------------------------------------------
+画像１　　画像２　　　画像３　　画像４
+説明　　　説明　　　　説明　　　説明　
+等間隔に並べる
+html
+<div class="contents-item">
+  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/html.svg">
+  <p>HTML & CSS</p>
+</div>
+<div class="contents-item">
+  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/php.svg">
+  <p>PHP</p>
+</div>
+<div class="contents-item">
+  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/ruby.svg">
+  <p>Ruby</p>
+</div>
+<div class="contents-item">
+  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/swift.svg">
+  <p>Swift</p>
+</div>
+css
+.contents-item {
+  float: left;
+  /* margin-rightを40pxにしてください */
+  /*margin-right:40px;*/
+  width:25%;
+  text-align:center;
+}
+------------------------------------------------------
+メールアドレスと文章のフォーム送信ボタンのセット
+html
+<div class="contact-form">
+  <h3 class="section-title">お問い合わせ</h3>
+  <p>メールアドレス（必須）</p>
+  <!-- <input>要素を追加してください -->
+  <input type="text/submit/hidden/button/image" name="" id="" value="" />
+  
+  <p>お問い合わせ内容（必須）</p>
+  <!-- <textarea>要素を追加してください -->
+  <textarea ></textarea>
+  
+  
+  <p>※必須項目は必ずご入力ください</p>
+  <!-- <input>要素を追加してください -->
+  <input class="contact-submit" type="submit"  value="送信"/>
+</div>
+css
+.contact-form {
+  padding-top: 100px;
+}
+
+/* inputとtextareaのCSSを指定してください */
+input,textarea{
+  width:400px;
+  margin-top:10px;
+  margin-bottom:30px;
+  padding:20px;
+  font-size:18px;
+  border:1px solid #dee7ec;
+}
+
+/* contact-submitのCSSを指定してください */
+.contact-submit{
+  background-color:#dee7ec;
+  color:#889eab;
+}
+------------------------------------------------------
+背景画像を指定
+<div></div>
+
+CSSで背景画像を指定するにはbackground-imageプロパティを用います。
+
+background-imageで指定された背景画像は図のように表示範囲を埋め尽くすまで、
+繰り返し表示される性質があります。
+background-size: cover;を指定すると、
+1枚の画像で表示範囲を埋め尽くすように画像の大きさが拡大縮小します。
+div{
+  //高さは200pxに指定
+  height:200px;
+  background-image: url(画像のURL);
+  background-size: cover;
+}
+------------------------------------------------------
+要素を中央ぞろえにする
+containerクラスを中央寄せにしましょう。
+中央に寄せるためにはmarginの左右にautoを指定します。
+marginにautoを指定するときは、必ずwidthを併せて指定します。
+なお、上下のmarginにautoを指定することはできません。
+.container{
+  width:300px;
+  margin:0 auto;
+}
+------------------------------------------------------
+.top-wrapper h1{
+  //透明度0.7
+  opacity:0.7;
+  font-size:45px;
+  //文字間隔5px
+  letter-spacing:5px;
+}
+------------------------------------------------------
+ボタンを作る　aタグで
+html
+<a class="btn facebook" href="#">Facebookで登録</a>
+css 
+/* btnクラスのCSSを指定してください */
+.btn{
+  padding:8px 24px;
+  color:white;
+  display:inline-block;
+  opacity:0.8;
+  //ボタンに丸みを持たせる
+  border-radius:4px;
+}
+/* btnクラスにhoverしたときのCSSを指定してください */
+.btn:hover{
+  opacity:1;
+}
+/* facebookクラスのCSSを指定してください */
+.facebook{
+  background-color:#3b5998;
+  margin-right:10px;
+}
+------------------------------------------------------
+アイコンを表示するにはFont Awesomeというものを使うと便利です。
+たくさんのアイコンが用意されており、
+自分の気に入ったアイコンを簡単に使うことが出来ます。
+https://fontawesome.com に詳しい使い方やアイコンの一覧が載っています。
+
+Font Awesomeは、以下の手順で使用することができます。
+①Font AwesomeのCSSファイルを読み込む
+②<span>タグにfaクラスとfa-アイコン名クラスを指定する
+（Font Awesomeのサイトにアイコンごとのクラス名が載っています。）
+これだけで簡単にアイコンを表示させることができます。
+
+<head>
+  <!-- ここでFont Awesomeを読み込みましょう -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+  <span class="fa fa-facebook"></span>
+</body>
+css
+/* faクラスのmargin-rightを5pxに指定してください */
+.fa{
+  margin-right:5px;
+}
+------------------------------------------------------
+これまで要素を透明にするにはopacityを用いてきました。
+しかし、opacityには要素の中身全てを透明にするという性質があります。
+背景色のみを透明にするには、rgbaというものを使う必要があります。
+それを学んでいきましょう。
+
+<div class="rgba">
+  <p>rgbaの透過</p>
+</div>
+<div class="opacity">
+  <p>opacityの透過</p>
+</div>
+css
+.rgba{
+  //pタグはそのまま背景だけ透明
+background-color:rgba(10,10,10,0.5);
+}
+.opacity{
+  //ｐタグも透明
+  opacity:0.5;
+}
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+画像１　　　画像２　　　画像３
+ボタン1　　ボタン２　　ボタン３のように表示
+//ボタンクリックすると、ボタン押したように表示
+html
+<div class="option-wrapper">
+    <div class="option-group">
+        <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_baby_wanko.png">
+        <div class="option-btn" data-option="1">1. ベイビーわんこ</div>
+    </div>
+    <div class="option-group">
+        <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_wanko.png">
+        <div class="option-btn" data-option="2">2. にんじゃわんこ</div>
+    </div>
+    <div class="option-group">
+        <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_hitsuji.png">
+        <div class="option-btn" data-option="3">3. ひつじ仙人</div>
+    </div>
+</div>
+
+css
+.option-wrapper {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.option-group {
+  margin-bottom: 12px;
+  margin: 20px auto;
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.option-image {
+  width: 120px;
+  height: auto;
+}
+
+.option-btn {
+  cursor: pointer;
+  width: 154px;
+  margin: 10px;
+  padding: 12px 0;
+  text-align: center;
+  background-color: #5dca88;
+  //ボタンに影作る　下方向のみ
+  box-shadow: 0px 4px #279C56;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+}
+//ボタンクリックすると、ボタン押したように表示
+.option-btn:active{
+  position: relative;
+  top: 2px;
+  box-shadow: none;
+}
+
+
+
+
+
+
