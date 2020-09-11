@@ -258,16 +258,142 @@ background-color:rgba(10,10,10,0.5);
   opacity:0.5;
 }
 ------------------------------------------------------
+line-heightプロパティは本来行間を調整するためのプロパティですが、
+要素の縦方向の中央に文字を配置するのにも使えます。
+line-heightプロパティの「高さの中心」に文字が配置されるため、
+要素の高さとline-heightプロパティを同じ値にすると、
+文字がちょうど中央に配置されるようになります。
 ------------------------------------------------------
+<a>タグはインライン要素なので、
+中身のテキストの部分しか大きさを持ちません。
+その結果、
+<a>タグをクリックできる範囲はテキストの部分だけになってしまいます。
+<a>タグをブロック要素にすると、大きさが親要素いっぱいに広がるので、
+全体をクリックできるようになります。
 ------------------------------------------------------
+0.5秒で色などを変化
+transition:all 0.5s;
 ------------------------------------------------------
+レイアウト　imgとpを重ねる
+
 ------------------------------------------------------
+position: absolute;の基準位置はサイト全体の左上部分ですが、
+この基準位置は変更することが出来ます。
+基準としたい親要素にposition: relative;と指定すると、
+その要素の左上部分が基準位置となります。
+
+そして位置を変更したい子要素を
+position:absolute;
+top:90px;
+とする
 ------------------------------------------------------
+画像１　２　３　４
+画像タイトル
+画像説明文を表示
+html
+<div class="lessons">
+  <div class="lesson">
+    <div class="lesson-icon">
+      <img src="https://prog-8.com/images/html/advanced/html.png">
+      <p>HTML & CSS</p>
+    </div>
+    <p class="txt-contents">Webページの作成に使用される言語です。HTMLとCSSを組み合わせることで、静的なページを作り上げることができます。</p>
+  </div>
+  <div class="lesson">
+    <div class="lesson-icon">
+      <img src="https://prog-8.com/images/html/advanced/jQuery.png">
+      <p>jQuery</p>
+    </div>
+    <p class="txt-contents">素敵な動きを手軽に実装できるJavaScriptライブラリです。 アニメーション効果をつけたり、Ajax（エイジャックス）を使って外部ファイルを読み込んだりと色々なことができます。</p>
+  </div>
+  <div class="lesson">
+    <div class="lesson-icon">
+      <img src="https://prog-8.com/images/html/advanced/ruby.png">
+      <p>Ruby</p>
+    </div>
+    <p class="txt-contents">オープンソースの動的なプログラミング言語で、 シンプルさと高い生産性を備えています。大きなWebアプリケーションから小さな日用ツールまで、さまざまなソフトウェアを作ることができます。</p>
+  </div>
+  <div class="lesson">
+    <div class="lesson-icon">
+      <img src="https://prog-8.com/images/html/advanced/php.png">
+      <p>PHP</p>
+    </div>
+    <p class="txt-contents">HTMLだけではページの内容を変えることはできません。PHPはHTMLにプログラムを埋め込み、それを可能にします。</p>
+  </div>
+</div>
+css
+.lesson {
+  float: left;
+  width: 25%;
+}
+/* lesson-iconクラスのCSSを指定してください */
+.lesson-icon{
+  position:relative;
+}
+/* lesson-iconの中の<p>のCSSを指定してください */
+.lesson-icon p{
+  position:absolute;
+  top:90px;
+  width:100%;
+  color:white;
+}
+/* txt-contentsクラスのCSSを指定してください */
+.txt-contents{
+  width:80%;
+  display:inline-block;
+  margin:20px;
+  font-size:12px;
+  color:#b3aeb5;
+}  
 ------------------------------------------------------
+マウスポインターの変更
+curser:text;
+curser:pointer;
+curser:default;
+>aタグは初めからポインターが設定されている。
 ------------------------------------------------------
+/* box-shadowをつけてください */
+  box-shadow:0 7px #1a7940;
 ------------------------------------------------------
+影がついたボタンを押すとへこむ
+html
+<span class="btn message">さっそく開発する</span>
+
+.btn {
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+.message {
+  padding: 15px 40px;
+  background-color: #5dca88;
+  cursor: pointer;
+  //７ｐｘの影を真下につける
+  box-shadow: 0 7px #1a7940;
+}
+/* messageクラスがクリックされているときのCSSを指定してください */
+.message:active{
+  box-shadow:none;
+  //クリックすると影の分の7px下がる
+  position:relative;
+  top:7px;
+}
 ------------------------------------------------------
+オブジェクト　画面左上からの位置を固定
+/* positionプロパティをfixedに、topを0に指定してください */
+  position:fixed;
+  top:0;
 ------------------------------------------------------
+オブジェクトが重なった場合上に表示
+数字が大きいほど上に表示
+/* z-indexを10に指定してください */
+  z-index:10;
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
