@@ -358,7 +358,6 @@ curser:default;
 影がついたボタンを押すとへこむ
 html
 <span class="btn message">さっそく開発する</span>
-
 .btn {
   padding: 8px 24px;
   color: white;
@@ -366,7 +365,6 @@ html
   opacity: 0.8;
   border-radius: 4px;
 }
-
 .btn:hover {
   opacity: 1;
 }
