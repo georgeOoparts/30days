@@ -1,0 +1,974 @@
+number list
+<ol>
+  <li>項目その1</li>
+  <li>項目その2</li>
+  <li>項目その3</li>
+</ol>
+------------------------------------------
+h2…要素を指定（セレクタ）
+color…スタイルの種類（プロパティ）
+red…プロパティに実行して欲しい具体的な内容（バリュー）
+------------------------------------------
+
+< class="contents">
+  <p>このpの色だけ変えたい</p>
+  <div>
+    <p>ここは変えない</p>
+    <p>ここも変えない</p>
+  </div>
+</div>
+
+/* 誤：「.contents p」指定では全てのpタグの色が変わってしまう */
+.contentsクラスは以下の全ての色変化
+.contents p {
+  color: red;
+}
+
+/* 正：「>」で繋げることで直属の子孫要素のみを指定できます */
+.contents > p {
+  color: red;
+}
+------------------------------------------
+cromeで検証
+hpで右クリック＞検証
+
+右側elementsで対象のhtml文をクリック
+cssを変更
+
+computed でPADDING　MARGIN　分かりやすく指定
+------------------------------------------
+フォントの形はserifでそれがなければ、sans-serifで
+font-family: serif,sans-serif;
+}
+------------------------------------------
+background-image: url(./screenshot.105.jpg);
+    height: 600px;
+    width: 600px;
+    background-size: contain;
+------------------------------------------
+縦横の比率維持したまま　最大サイズで画像の縦と横が全て収まるように
+する　
+background-size: contain;
+------------------------------------------
+縦横比そのまま、最大サイズで縦か横のどちらかに最大サイズで画像が収まるようにする
+おそらく大きい方で合わす
+background-size: cover;
+------------------------------------------
+y方向のみに画像を繰り返し表示  
+background-repeat: repeat-y;
+繰り返さない
+no-repeart
+------------------------------------------
+画面をスクロールしても画像を動かさない
+background-attachment: fixed;
+スクロールしたら画像を動かす
+background-attachment:scroll;
+------------------------------------------
+floatの解除　　　　高さをfloatしたものにつける
+clear: both;
+---------------
+原始的　解決
+<div class="container">
+    <div class="header-left">
+        <h1>30DAYSトライアル</h1>
+    </div>
+    <div class="header-right">
+        <h1>問い合わせ</h1>
+    </div>
+    //最後にclearつける
+    <div class="clear"></div>
+</div>
+.clear{
+    clear: both;
+}
+---------------
+いけてる　解決
+<div class="container clear">
+    <div class="header-left">
+        <h1>30DAYSトライアル</h1>
+    </div>
+    <div class="header-right">
+        <h1>問い合わせ</h1>
+    </div>
+</div>
+.clear:after{
+    content:"";
+    clear: both;
+    display: block;
+}
+------------------------------------------
+オブジェクト固定
+position: fixed;
+
+画面の上下左右から位置を指定
+left:10px:
+right
+top
+bottom
+------------------------------------------
+手前に表示 数字が大きいほど手前に表示
+z-index:1;
+------------------------------------------
+本来の位置から離れて表示
+position:relative;
+left:10px:
+right
+top
+bottom
+------------------------------------------
+親オブジェクトから距離を指定
+親
+position:relative;
+
+子
+position: absolute;
+
+left:10px:
+right
+top
+bottom
+------------------------------------------
+vscode auto save
+上部メニューから「設定」を選ぶ（Macの場合は【Command 】+【,】のショートカットでも開きます！）
+検索窓に「autosave」を入力
+セレクトボックスから「afterDelay」を選ぶ
+
+リアルタイム
+
+たくさんのプラグインを入れましたが、
+ここでは使うのに少し手順が必要になるLive Serverをの使い方を説明します！
+
+Live Serverとは簡易ローカルサーバーを起動し、
+HTMLやCSSファイルの更新をライブプレビューできるようにするプラグインです。
+先ほど設定したファイルの自動保存と合わせて使うことで変更がリアルタイムに反映されるので気持ちいいです
+！きっと感動すること間違いなし！------------------------------------------
+------------------------------------------
+ファイル　クロームで立ち上げないとだめ　下無線マークで自動記録
+------------------------------------------
+vsコード　ショートカット
+https://qiita.com/12345/items/64f4372fbca041e949d0
+https://qiita.com/aoi70/items/d61d5cf9030ac3ce55f0
+------------------------------------------
+
+------------------------------------------
+------------------------------------------
+------------------------------------------
+------------------------------------------
+------------------------------------------
+
+
+css
+h1{
+  font-family:serif;
+}
+p{//フォント名にスペースがある場合
+  font-family:"Avenir Next";
+}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- 雛形をコピーして、3つの要素を追加してください -->
+    <!-- 文字コードを「utf-8」にしてください -->
+    <meta charset="utf-8">
+    
+    <!-- タイトルを「Progate」にしてください -->
+    <title>Progate</title>
+    
+    <!-- 「stylesheet.css」を読み込んでください -->
+    //cssを使う。使うcssファイルはstylesheet.css
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+  </body>
+</html>
+------------------------------------------------------
+リストの前の・を消す
+css
+li{
+    list-style: none;
+}
+------------------------------------------------------
+プロゲート
+リスト１
+リスト２
+リスト３
+を
+プロゲートリスト1リスト２リスト３
+と横並びにする。
+html
+<div class="header-logo">Progate</div>
+<div class="header-list">
+  <ul>
+    <li>プログラミングとは</li>
+    <li>学べるレッスン</li>
+    <li>お問い合わせ</li>
+  </ul>
+</div>
+css
+li{
+    list-style: none;
+    float: left;
+}
+.header-logo{
+  font-size: 36px;
+  float: left;
+}
+------------------------------------------------------
+ブロック要素　DIV　H1　P
+改行される
+width height　〇
+margin　padding　〇
+配置　縦並び
+
+インライン要素SPAN　a
+改行されない
+width height　×
+margin　padding　△　左右のみ指定できる
+配置　横並び
+
+インラインブロック要素
+改行されない
+width height　〇
+margin　padding　〇
+配置　横並び
+cssで要素を変更
+CSS｛
+  display:inline-block;
+｝
+------------------------------------------------------
+四角で囲む線
+.section-title{
+  border:2px solid #dee7ec;
+}
+下線
+/* section-titleのborder-bottomを指定してください */
+.section-title{
+  border-bottom:2px solid #dee7ec;
+}
+------------------------------------------------------
+画像１　　画像２　　　画像３　　画像４
+説明　　　説明　　　　説明　　　説明　
+等間隔に並べる
+html
+<div class="contents-item">
+  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/html.svg">
+  <p>HTML & CSS</p>
+</div>
+<div class="contents-item">
+  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/php.svg">
+  <p>PHP</p>
+</div>
+<div class="contents-item">
+  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/ruby.svg">
+  <p>Ruby</p>
+</div>
+<div class="contents-item">
+  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/swift.svg">
+  <p>Swift</p>
+</div>
+css
+.contents-item {
+  float: left;
+  /* margin-rightを40pxにしてください */
+  /*margin-right:40px;*/
+  width:25%;
+  text-align:center;
+}
+------------------------------------------------------
+メールアドレスと文章のフォーム送信ボタンのセット
+html
+<div class="contact-form">
+  <h3 class="section-title">お問い合わせ</h3>
+  <p>メールアドレス（必須）</p>
+  <form action="#" method="post">
+    <input type="text/submit/hidden/button/image" name="" id="" value="" />
+    <p>お問い合わせ内容（必須）</p>
+    <textarea ></textarea>
+    <p>※必須項目は必ずご入力ください</p>
+    <input class="contact-submit" type="submit"  value="送信"/>
+    <button class="btn btn-register" type="submit">無料で始める</button>
+
+  </form>
+</div>
+css
+.btn-register {
+    background-color: #ec6d64;
+    //formの中ではinline-block　text-align：center聞かないかも
+    display: block;
+    //中央ぞろえにするには
+    //block要素でmargin: auto;にしないとだめか？
+    margin: auto;
+    border: none;
+}
+
+.contact-form {
+  padding-top: 100px;
+}
+
+/* inputとtextareaのCSSを指定してください */
+input,textarea{
+  //幅をwidthで決める
+  width:400px;
+  //form幅、高さはpadding　間隔はmarginで決める
+  margin-top:10px;
+  margin-bottom:30px;
+  padding:20px;
+  font-size:18px;
+  border:1px solid #dee7ec;
+}
+送信ボタンなどは別のクラスでCSS指定するのがおすすめ㊦
+/* contact-submitのCSSを指定してください */
+.contact-submit{
+  background-color:#dee7ec;
+  color:#889eab;
+}
+//入力フォーム　メールアドレスと薄字で表示
+<input type="email" name="email" id="" placeholder="メールアドレス">
+
+//inputタグのcssは下記のようにあてると便利
+
+input[type="email"],input[type="text"]{
+    width:600px;
+    border: 3px solid #d8d8d8;   
+    font-size:18px;
+    display:block;
+    margin:auto;   
+    padding: 15px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+}
+
+------------------------------------------------------
+背景画像を指定
+<div></div>
+
+CSSで背景画像を指定するにはbackground-imageプロパティを用います。
+
+background-imageで指定された背景画像は図のように表示範囲を埋め尽くすまで、
+繰り返し表示される性質があります。
+background-size: cover;を指定すると、
+1枚の画像で表示範囲を埋め尽くすように画像の大きさが拡大縮小します。
+div{
+  //高さは200pxに指定
+  height:200px;
+  background-image: url(画像のURL);
+  background-size: cover;
+}
+------------------------------------------------------
+要素を中央ぞろえにする
+containerクラスを中央寄せにしましょう。
+中央に寄せるためにはmarginの左右にautoを指定します。
+marginにautoを指定するときは、必ずwidthを併せて指定します。
+なお、上下のmarginにautoを指定することはできません。
+.container{
+  width:300px;
+  margin:0 auto;
+}
+------------------------------------------------------
+.top-wrapper h1{
+  //透明度0.7
+  opacity:0.7;
+  font-size:45px;
+  //文字間隔5px
+  letter-spacing:5px;
+}
+------------------------------------------------------
+ボタンを作る　aタグで
+html
+<a class="btn facebook" href="#">Facebookで登録</a>
+css 
+/* btnクラスのCSSを指定してください */
+.btn{
+  padding:8px 24px;
+  color:white;
+  display:inline-block;
+  opacity:0.8;
+  //ボタンに丸みを持たせる
+  border-radius:4px;
+}
+/* btnクラスにhoverしたときのCSSを指定してください */
+.btn:hover{
+  opacity:1;
+}
+/* facebookクラスのCSSを指定してください */
+.facebook{
+  background-color:#3b5998;
+  margin-right:10px;
+}
+------------------------------------------------------
+アイコンを表示するにはFont Awesomeというものを使うと便利です。
+ファビコン
+たくさんのアイコンが用意されており、
+自分の気に入ったアイコンを簡単に使うことが出来ます。
+https://fontawesome.com に詳しい使い方やアイコンの一覧が載っています。
+
+Font Awesomeは、以下の手順で使用することができます。
+①Font AwesomeのCSSファイルを読み込む
+②<span>タグにfaクラスとfa-アイコン名クラスを指定する
+（Font Awesomeのサイトにアイコンごとのクラス名が載っています。）
+これだけで簡単にアイコンを表示させることができます。
+
+<head>
+  <!-- ここでFont Awesomeを読み込みましょう -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+  <span class="fa fa-facebook"></span>
+</body>
+css
+/* faクラスのmargin-rightを5pxに指定してください */
+.fa{
+  margin-right:5px;
+}
+------------------------------------------------------
+文字は透明にしない
+これまで要素を透明にするにはopacityを用いてきました。
+しかし、opacityには要素の中身全てを透明にするという性質があります。
+背景色のみを透明にするには、rgbaというものを使う必要があります。
+それを学んでいきましょう。
+
+<div class="rgba">
+  <p>rgbaの透過</p>
+</div>
+<div class="opacity">
+  <p>opacityの透過</p>
+</div>
+css
+.rgba{
+  //pタグはそのまま背景だけ透明
+background-color:rgba(10,10,10,0.5);
+}
+.opacity{
+  //ｐタグも透明
+  opacity:0.5;
+}
+------------------------------------------------------
+line-heightプロパティは本来行間を調整するためのプロパティですが、
+要素の縦方向の中央に文字を配置するのにも使えます。
+line-heightプロパティの「高さの中心」に文字が配置されるため、
+要素の高さとline-heightプロパティを同じ値にすると、
+文字がちょうど中央に配置されるようになります。
+------------------------------------------------------
+<a>タグはインライン要素なので、
+中身のテキストの部分しか大きさを持ちません。
+その結果、
+<a>タグをクリックできる範囲はテキストの部分だけになってしまいます。
+<a>タグをブロック要素にすると、大きさが親要素いっぱいに広がるので、
+全体をクリックできるようになります。
+------------------------------------------------------
+0.5秒で色などを変化
+transition:all 0.5s;
+------------------------------------------------------
+レイアウト　imgとpを重ねる
+
+------------------------------------------------------
+position: absolute;の基準位置はサイト全体の左上部分ですが、
+この基準位置は変更することが出来ます。
+基準としたい親要素にposition: relative;と指定すると、
+その要素の左上部分が基準位置となります。
+
+そして位置を変更したい子要素を
+position:absolute;
+top:90px;
+とする
+この時　
+width:100%;とすると中央ぞろえになる
+------------------------------------------------------
+画像１　２　３　４
+画像タイトル
+画像説明文を表示
+html
+<div class="lessons">
+  <div class="lesson">
+    <div class="lesson-icon">
+      <img src="https://prog-8.com/images/html/advanced/html.png">
+      <p>HTML & CSS</p>
+    </div>
+    <p class="txt-contents">Webページの作成に使用される言語です。HTMLとCSSを組み合わせることで、静的なページを作り上げることができます。</p>
+  </div>
+  <div class="lesson">
+    <div class="lesson-icon">
+      <img src="https://prog-8.com/images/html/advanced/jQuery.png">
+      <p>jQuery</p>
+    </div>
+    <p class="txt-contents">素敵な動きを手軽に実装できるJavaScriptライブラリです。 アニメーション効果をつけたり、Ajax（エイジャックス）を使って外部ファイルを読み込んだりと色々なことができます。</p>
+  </div>
+  <div class="lesson">
+    <div class="lesson-icon">
+      <img src="https://prog-8.com/images/html/advanced/ruby.png">
+      <p>Ruby</p>
+    </div>
+    <p class="txt-contents">オープンソースの動的なプログラミング言語で、 シンプルさと高い生産性を備えています。大きなWebアプリケーションから小さな日用ツールまで、さまざまなソフトウェアを作ることができます。</p>
+  </div>
+  <div class="lesson">
+    <div class="lesson-icon">
+      <img src="https://prog-8.com/images/html/advanced/php.png">
+      <p>PHP</p>
+    </div>
+    <p class="txt-contents">HTMLだけではページの内容を変えることはできません。PHPはHTMLにプログラムを埋め込み、それを可能にします。</p>
+  </div>
+</div>
+css
+.lesson {
+  float: left;
+  width: 25%;
+}
+/* lesson-iconクラスのCSSを指定してください */
+.lesson-icon{
+  position:relative;
+}
+/* lesson-iconの中の<p>のCSSを指定してください */
+.lesson-icon p{
+  position:absolute;
+  top:90px;
+  width:100%;
+  color:white;
+}
+/* txt-contentsクラスのCSSを指定してください */
+.txt-contents{
+  width:80%;
+  display:inline-block;
+  margin:20px;
+  font-size:12px;
+  color:#b3aeb5;
+}  
+------------------------------------------------------
+マウスポインターの変更
+curser:text;
+curser:pointer;
+curser:default;
+>aタグは初めからポインターが設定されている。
+------------------------------------------------------
+/* box-shadowをつけてください */
+  box-shadow:0 7px #1a7940;
+------------------------------------------------------
+影がついたボタンを押すとへこむ
+html
+<span class="btn message">さっそく開発する</span>
+.btn {
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 1;
+}
+.message {
+  padding: 15px 40px;
+  background-color: #5dca88;
+  cursor: pointer;
+  //７ｐｘの影を真下につける
+  box-shadow: 0 7px #1a7940;
+  border: none;
+}
+/* messageクラスがクリックされているときのCSSを指定してください */
+.message:active{
+  box-shadow:none;
+  //クリックすると影の分の7px下がる
+  position:relative;
+  top:7px;
+}
+------------------------------------------------------
+オブジェクト　画面左上からの位置を固定
+/* positionプロパティをfixedに、topを0に指定してください */
+  position:fixed;
+  top:0;
+------------------------------------------------------
+オブジェクトが重なった場合上に表示
+数字が大きいほど上に表示　　重ねる　手前
+/* z-indexを10に指定してください */
+  z-index:10;
+------------------------------------------------------
+
+
+
+
+画像１　　　画像２　　　画像３
+ボタン1　　ボタン２　　ボタン３のように表示
+//ボタンクリックすると、ボタン押したように表示
+html
+<div class="option-wrapper">
+    <div class="option-group">
+        <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_baby_wanko.png">
+        <div class="option-btn" data-option="1">1. ベイビーわんこ</div>
+    </div>
+    <div class="option-group">
+        <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_wanko.png">
+        <div class="option-btn" data-option="2">2. にんじゃわんこ</div>
+    </div>
+    <div class="option-group">
+        <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_hitsuji.png">
+        <div class="option-btn" data-option="3">3. ひつじ仙人</div>
+    </div>
+</div>
+
+css
+.option-wrapper {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.option-group {
+  margin-bottom: 12px;
+  margin: 20px auto;
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.option-image {
+  width: 120px;
+  height: auto;
+}
+
+.option-btn {
+  cursor: pointer;
+  width: 154px;
+  margin: 10px;
+  padding: 12px 0;
+  text-align: center;
+  background-color: #5dca88;
+  //ボタンに影作る　下方向のみ
+  box-shadow: 0px 4px #279C56;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+}
+//ボタンクリックすると、ボタン押したように表示
+.option-btn:active{
+  position: relative;
+  top: 2px;
+  box-shadow: none;
+}
+---------------------------------
+メディアクエリ　スマホ　タブレット　サイズ変更　ブレイクポイント
+@media (max-width: 1000px) {
+  h1{
+    color:blue;  
+  }
+}
+---------------------------------
+@media only screen and (max-width: 767px){
+  //float　after使ったときは解除しないとレイアウト崩れる
+  .clear::after{
+        content:none;
+  }
+  //インプットは小さくするとレイアウト崩れるので100%
+  //サイズ固定ではみ出すオブジェはwidth100%
+  input[type="email"],input[type="text"]{
+    width:100%;
+  }
+}
+---------------------------------
+box-sizingをborder-boxに指定すると、
+要素の幅(width)の合計にpaddingとborderが含まれるようになります。
+そのため、paddingやborderを追加した時に生じるレイアウト崩れを未然に防ぐ
+ことができます
+（※ただし、marginはborder-boxでの合計値に含まれません）。
+レイアウト崩れ　サイズ 
+*はすべての要素に対してCSSを適用したい場合に用います。
+*{
+  box-sizing:border-box;
+}
+------------------------------
+レスポンシブデザインを適用する準備として、
+<head>タグ内にviewportを設定しましょう。
+viewportを設定しないと、スマートフォンやタブレットでの閲覧時に
+メディアクエリが正しく機能しません。
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+その下に画面サイズ変更の為だけのcssをheadタグの中にかくのおすすめ
+<link rel="stylesheet" href="responsive.css">
+------------------------------
+floatと親要素の高さ
+通常、親要素の高さは子要素を包む高さとなります。
+しかし、子要素が全てfloatの時、親要素の高さは0となってしまうという性質があります。
+これは、floatは「浮いている」という意味で、
+親要素から見るとfloatの子要素は存在しないように見えるからです。
+
+子要素が全てfloatでも、親要素が高さを持つように設定してみましょう。
+floatはclear: left;で「浮いている」状態を解除できます。
+ここではclear: left;を適用するためだけの空のタグを用意しましょう。
+空タグとclearでfloatを解除するのはよく使うテクニックなので、
+覚えておくようにしましょう。
+
+親要素htmlの子に追加(floatと同じ階層）
+<div class="clear"></div>
+
+.clear {
+  clear: left;
+}
+
+------------------------------
+floatの解除
+clear:both;
+
+
+
+------------------------------
+
+最大幅
+画面が大きすぎて　オブジェクトが広がりすぎるのを防ぐ
+
+.container {
+  /* max-widthを1170pxに指定してください */
+  max-width:1170px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+
+------------------------------
+メニューアイコンはデフォルトでは非表示にし、
+画面幅が670px以下（スマートフォンサイズ）の時にのみ表示されるようにします。
+要素を非表示にするにはdisplay: none;を用います。
+非表示にした要素を表示させる時は、display: block;を用いて表示します。
+
+
+メニューバーのファビコン
+<span class="fa fa-bars menu-icon"></span>
+------------------------------
+flexbox
+縦並びを横並びにする
+<ul class="flex-list">
+  <li class="li1">item1</li>
+  <li class="li2">item2</li>
+  <li class="li3">item3</li>
+  <li class="li4">item4</li>
+</ul>
+横並びにしたい要素の親要素にdisplay: flexを指定します。
+.flex-list{
+  display: flex
+  //要素を均等に並べる（右端、左端含める）
+  justify-content: space-around;
+  //要素を均等に並べる（右端、左端含めない）
+  justify-content: space-between;
+}
+flexboxを使うと、
+
+要素の横並び「diplay:inline-block」
+高さの中央揃え「vertical-align:middle」
+右揃え・左揃え「float」をかわりになるよ
+↓flexboxチートシート
+https://www.webcreatorbox.com/tech/css-flexbox-cheat-sheet
+------------------------------
+親要素の幅に合わせて伸ばしたい要素にflex: autoを指定します。
+/* .flex-list liに、flexプロパティを指定してください */
+.flex-list li{
+  flex: auto;
+}
+------------------------------
+横並びの要素を折り返す　
+折返し　折り返し
+
+折り返したい要素の親要素にflex-wrap: wrapを指定します。
+折り返したい要素自身には列数に応じたwidthを指定します。
+今回は2列にしたいのでwidth: 50%を指定しましょう。
+.flex-list {
+  display: flex;
+  /* flex-wrapを指定してください */
+  flex-wrap: wrap;
+}
+.flex-list li {
+  flex: auto;
+  /* widthを50％に指定してください */
+  width:50%;
+}
+------------------------------
+縦並び
+縦に並べたい要素の親要素にflex-direction: column;を指定します。
+------------------------------
+sas
+.main {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f567ae;
+  
+  // h1タグに対するコードを追加してください
+  h1{
+    color:#f8f8f8;
+    font-size:34px;
+  }
+  
+  
+  // pタグに対するコードを追加してください
+  p{
+    color:#efefef;
+    font-size:16px;
+  }
+}
+のように書ける
+------------------------------
+ホバー　アクティブはこのように書く
+// .buttonにカーソルを合わせた時のコードを追加してください
+    &:hover{
+      opacity: 1;
+    }
+    
+    // .buttonクリックした時のコードを追加してください
+    &:active{
+      position: relative;
+      top: 7px;
+      box-shadow: none;
+    }
+&はそのクラスそのものの意味
+
+
+------------------------------
+図のように、2番目の<li>にのみCSSを適用させたい時は
+「要素.クラス名」とすることで指定ができます。
+たくさんの要素がある中で、特定の要素にだけCSSを適用したい時によく使われます。
+li {
+  list-style: decimal;
+  margin-left: 22px;
+  color: #b5afaf;
+  line-height: 26px;
+  
+  // current-pageクラスに対するコードを追加してください
+  &.current-page{
+    color:#f74c90;
+  }
+  
+}
+------------------------------
+変数　使いまわす
+$wanko-color:#7579a3;
+範囲　注意　スコープ注意
+------------------------------
+Sassの中でもとても強力な機能である「mixin」について見ていきます。
+使いまわす　使いまわし
+
+mixinとは、いくつかのコードを1つにまとめて、
+複数箇所で簡単に呼び出すことができる機能です。
+これにより、同じコードを何度も書く必要がなくなり、
+無駄なコードを省略することができます。具体的な使い方は次から見ていきましょう。
+
+mixinを使うにはmixinを定義する必要があります。
+「@mixin mixin名 { コード }」とすることで定義できます。
+
+定義したmixinを使う方法を見ていきます。
+mixinは、使用したいSassファイルの中で「@include mixin名」
+とすることで使うことができます。
+includeすると右の図のように呼び出した箇所にmixinのcssが代入されます。
+mixin を使用した場合、下記の2つの図は同じコードとなります。
+
+// circleという名前のmixinを定義してください
+@mixin circle{
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 10px;
+  text-align: center;
+  background-color: #888888;
+}
+.small {
+    // 定義したcircleを呼び出してください
+    @include circle;
+    
+    width: 34px;
+    height: 34px;
+  }
+  
+  .medium {
+    // 定義したcircleを呼び出してください
+    @include circle;
+    
+    width: 62px;
+    height: 62px;
+  }
+  
+  .large {
+    // 定義したcircleを呼び出してください
+    @include circle;
+    
+    width: 90px;
+    height: 90px;
+  }
+------------------------------
+mixinに引数を使う
+@mixin circle ($color){
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 10px;
+  text-align: center;
+  // 引数$colorを用いて背景色を変更してください
+  background-color: $color;
+}
+.small {
+  // 引数に「#20efae」を指定してください
+  @include circle(#20efae);
+  width: 34px;
+  height: 34px;
+}
+------------------------------
+関数　暗闇　　暗みを増す
+100%　真暗　0%元のままの色
+background-color:darken($blue,100%);
+明るさを増す関数
+background-color:lighten($pink,20%);
+透明度を増す関数
+color:rgba(red,0.5);
+------------------------------
+外部ファイルを読み込む　　使いまわす　使いまわし
+読み込まれるファイル　アンダーバーをつける
+_variables.scssのように
+
+@import"variables";とcssに書いて呼び込む
+sassの最上部でに書く
+------------------------------
+〇を表示sass
+<div class="small"></div>
+
+@mixin circle{
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 10px;
+  text-align: center;
+  background-color: #888888;
+}
+.small {
+  // 定義したcircleを呼び出してください
+  @include circle;
+  
+  width: 34px;
+  height: 34px;
+}
+------------------------------
+html改行　行をそろえる　よく使う　タグ
+shift+alt+F
+------------------------------
+よく使うcontainer
+
+------------------------------
+新しいフォントの使い方
+https://daily-trial.zendesk.com/hc/ja/articles/900000529606-ROLAchan%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB
+------------------------------
+------------------------------
+------------------------------
+------------------------------
+------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

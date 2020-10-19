@@ -1,0 +1,14 @@
+
+
+/* top */
+.top{
+    background-image: url(../img/main-vsual-nontitle.png);
+    background-size: cover;
+}
+
+@media only screen and (max-width: 380px){
+    .copy-right{
+        font-size: 10px;
+    }    
+    
+}
