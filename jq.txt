@@ -1127,10 +1127,29 @@ $('header a').click(function(){
   
 });
 -----------------------------------------------------------------
-
-
-
+×ボタン実装 html css
+ファビコンを使う
+head
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  
+<div class="modal">
+  <!-- モーダルの閉じるボタンのHTMLを貼り付けてください -->
+  <!-- "close-modal"というclassをつけてください -->
+  <div class="close-modal">
+    <i class="fa fa-2x fa-times"></i>
+  </div>
+</div>
+css
+.fa-times {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: rgba(128, 128, 128, 0.46);
+  cursor: pointer;
+}
 -----------------------------------------------------------------
+
+
 -----------------------------------------------------------------
 -----------------------------------------------------------------
 -----------------------------------------------------------------
